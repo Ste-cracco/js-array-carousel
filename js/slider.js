@@ -9,6 +9,9 @@ const slides = [
 ]
 
 const slideWrapperElement = document.querySelector(".slides-wrapper");
+const frecciaIndietro = document.querySelector(".arrow-prev");
+const frecciaAvanti = document.querySelector(".arrow-next");
+
 
 for(let i = 0; i < slides.length; i++) {
 
@@ -26,7 +29,8 @@ for(let i = 0; i < slides.length; i++) {
 	liElement.append(imgElement)
 	// Aggiunto <li> a <ul> con classe .slides-wrapper
 	slideWrapperElement.append(liElement)
+}
 
-	console.log(liElement)
-
+if(img.src = 0) {
+	liElement.classList.add('active');
 }
