@@ -10,6 +10,8 @@ const slides = [
 
 const liSlides = []
 
+let indiceCorrente = 0;
+
 const slideWrapperElement = document.querySelector(".slides-wrapper");
 const frecciaIndietro = document.querySelector(".arrow-prev");
 const frecciaAvanti = document.querySelector(".arrow-next");
@@ -31,18 +33,28 @@ for(let i = 0; i < slides.length; i++) {
 	liElement.append(imgElement)
 	// Aggiunto <li> a <ul> con classe .slides-wrapper
 	slideWrapperElement.append(liElement)
-
+	liSlides.push(liElement);
+	
 	if(i === 0) {
 		liElement.classList.add('active');
-	}
-
-	frecciaAvanti.addEventListener('click', function() {
-		liSlides.push(liElement);
-		liElement.classList.remove('active');
-		src++ ;
-		liElement.classList.add('active');
-	})
+	}	
 }
+
+frecciaAvanti.addEventListener('click', function() {
+	const slideAttiva = liSlides[indiceCorrente];
+	slideAttiva.classList.remove("active");
+	const slideSuccessiva = liSlides[indiceCorrente + 1];
+	indiceCorrente++;
+			
+})
+
+frecciaIndietro.addEventListener('click', function() {
+	const slideAttiva = liSlides[indiceCorrente];
+	slideAttiva.classList.remove("active");
+	const slideSuccessiva = liSlides[indiceCorrente - 1];
+	slideSuccessiva.classList.add("active");
+	indiceCorrente--;	
+})
 
 
 
