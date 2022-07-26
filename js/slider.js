@@ -8,6 +8,8 @@ const slides = [
 	'./img/05.jpg',
 ]
 
+const liSlides = []
+
 const slideWrapperElement = document.querySelector(".slides-wrapper");
 const frecciaIndietro = document.querySelector(".arrow-prev");
 const frecciaAvanti = document.querySelector(".arrow-next");
@@ -17,7 +19,7 @@ for(let i = 0; i < slides.length; i++) {
 
 	// creazione variabile "src" avente lo stesso nome dell'attributo src 
 	// presente nelle immagini 
-	const src = slides[i];
+	let src = slides[i];
 	// creazione <li> e aggiunta classe .slide
 	const liElement = document.createElement('li');
 	liElement.classList.add('slide');
@@ -29,8 +31,19 @@ for(let i = 0; i < slides.length; i++) {
 	liElement.append(imgElement)
 	// Aggiunto <li> a <ul> con classe .slides-wrapper
 	slideWrapperElement.append(liElement)
+
+	if(i === 0) {
+		liElement.classList.add('active');
+	}
+
+	frecciaAvanti.addEventListener('click', function() {
+		liSlides.push(liElement);
+		liElement.classList.remove('active');
+		src++ ;
+		liElement.classList.add('active');
+	})
 }
 
-if(img.src = 0) {
-	liElement.classList.add('active');
-}
+
+
+
