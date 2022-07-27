@@ -19,8 +19,8 @@ const frecciaAvanti = document.querySelector(".arrow-next");
 
 for(let i = 0; i < slides.length; i++) {
 
-	// creazione variabile "src" avente lo stesso nome dell'attributo src 
-	// presente nelle immagini 
+	// creazione variabile "src" avente lo stesso nome dell'attributo src
+	// presente nelle immagini
 	let src = slides[i];
 	// creazione <li> e aggiunta classe .slide
 	const liElement = document.createElement('li');
@@ -45,17 +45,23 @@ for(let i = 0; i < slides.length; i++) {
 frecciaAvanti.addEventListener('click', function() {
 	const slideAttiva = liSlides[indiceCorrente];
 	slideAttiva.classList.remove("active");
-	const slideSuccessiva = liSlides[indiceCorrente + 1];
+	if(indiceCorrente === 4) {
+		const slideSuccessiva = liSlides[indiceCorrente = 0 - 1 ]
+	}
+	slideSuccessiva = liSlides[indiceCorrente + 1];
 	slideSuccessiva.classList.add("active");
-	indiceCorrente++;			
+	indiceCorrente++;
 })
 
 frecciaIndietro.addEventListener('click', function() {
 	const slideAttiva = liSlides[indiceCorrente];
 	slideAttiva.classList.remove("active");
+	if(indiceCorrente === 0) {
+		const slideSuccessiva = liSlides[indiceCorrente = 5]
+	}
 	const slideSuccessiva = liSlides[indiceCorrente - 1];
 	slideSuccessiva.classList.add("active");
-	indiceCorrente--;	
+	indiceCorrente--;
 })
 
 
