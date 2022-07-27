@@ -25,6 +25,8 @@ for(let i = 0; i < slides.length; i++) {
 	// creazione <li> e aggiunta classe .slide
 	const liElement = document.createElement('li');
 	liElement.classList.add('slide');
+
+
 	// creazione <img>
 	const imgElement = document.createElement('img');
 	// Assegno all'attrubuto"src" delle <img>, il valore src equivalente a slides[i]
@@ -34,18 +36,18 @@ for(let i = 0; i < slides.length; i++) {
 	// Aggiunto <li> a <ul> con classe .slides-wrapper
 	slideWrapperElement.append(liElement)
 	liSlides.push(liElement);
-	
+
 	if(i === 0) {
-		liElement.classList.add('active');
-	}	
+		liElement.classList.add('active')
+	}
 }
 
 frecciaAvanti.addEventListener('click', function() {
 	const slideAttiva = liSlides[indiceCorrente];
 	slideAttiva.classList.remove("active");
 	const slideSuccessiva = liSlides[indiceCorrente + 1];
-	indiceCorrente++;
-			
+	slideSuccessiva.classList.add("active");
+	indiceCorrente++;			
 })
 
 frecciaIndietro.addEventListener('click', function() {
@@ -55,7 +57,6 @@ frecciaIndietro.addEventListener('click', function() {
 	slideSuccessiva.classList.add("active");
 	indiceCorrente--;	
 })
-
 
 
 
